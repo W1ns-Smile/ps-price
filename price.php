@@ -4,6 +4,7 @@
     /* include 'phpquery.php'; */
     /* include 'htmldoc.php'; */
     /* include 'simpledom.php'; */
+    /* include 'hq.php'; */
 ?>
 <!DOCTYPE html>
 <html lang="ru">
