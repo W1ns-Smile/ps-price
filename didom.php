@@ -36,7 +36,7 @@
 
 function dnstech ($murl) {
     if (empty($murl)) {
-        echo 'Не поствляется';
+        echo 'Не поставляется';
     }
     else {
     $curl = curl_init(); curl_setopt($curl, CURLOPT_URL, $murl);
@@ -47,6 +47,10 @@ function dnstech ($murl) {
 
     $document = new Document($str);
     $price = $document->find('.current-price-value')[0];
+    if ($price === null) {
+        echo 'Нет в наличии';
+    }
+    else {
     $text = $price->text();
     if ($text === '') {
         echo 'Нет в наличии';
@@ -56,10 +60,11 @@ function dnstech ($murl) {
     }
 }
 }
+}
 
 function citilink ($murl) {
     if (empty($murl)) {
-        echo 'Не поствляется';
+        echo 'Не поставляется';
     }
     else {
     $document = new Document($murl, true);
@@ -68,6 +73,7 @@ function citilink ($murl) {
     if ($price === null) {
         echo 'Нет в наличии';
     }
+    else {
     $text = $price->text();
     if ($text === '') {
         echo 'Нет в наличии';
@@ -75,16 +81,21 @@ function citilink ($murl) {
     else {
         echo $text.' &#8381;';
     }
+}
 }
 }
 
 function oldi ($murl) {
     if (empty($murl)) {
-        echo 'Не поствляется';
+        echo 'Не поставляется';
     }
     else {
     $document = new Document($murl, true);
     $price = $document->find('.price_leg')[0];
+    if ($price === null) {
+        echo 'Нет в наличии';
+    }
+    else {
     $text = $price->text();
     if ($text === '') {
         echo 'Нет в наличии';
@@ -92,16 +103,21 @@ function oldi ($murl) {
     else {
         echo $text.' &#8381;';
     }
+}
 }
 }
 
 function ulmart ($murl) {
     if (empty($murl)) {
-        echo 'Не поствляется';
+        echo 'Не поставляется';
     }
     else {
     $document = new Document($murl, true);
     $price = $document->find('span.b-price__num.js-price')[0];
+    if ($price === null) {
+        echo 'Нет в наличии';
+    }
+    else {
     $text = $price->text();
     if ($text === '') {
         echo 'Нет в наличии';
@@ -109,16 +125,21 @@ function ulmart ($murl) {
     else {
         echo $text.' &#8381;';
     }
+}
 }
 }
 
 /*function pleer ($murl) {
     if (empty($murl)) {
-        echo 'Не поствляется';
+        echo 'Не поставляется';
     }
     else {
     $document = new Document($murl, true);
     $price = $document->find('.inlineb')[0];
+    if ($price === null) {
+        echo 'Нет в наличии';
+    }
+    else {
     $text = $price->text();
     if ($text === '') {
         echo 'Нет в наличии';
@@ -126,6 +147,7 @@ function ulmart ($murl) {
     else {
         echo $text.' &#8381;';
     }
+}
 }
 }*/
 ?>
