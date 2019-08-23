@@ -65,6 +65,9 @@ function citilink ($murl) {
     $document = new Document($murl, true);
     $id = explode('/', $murl);
     $price = $document->find('#product-item-'.$id[6].' > div:nth-child(2) > div.product-sidebar__line-box.standart_price > div.price.price_break > ins.num')[0];
+    if ($price === null) {
+        echo 'Нет в наличии';
+    }
     $text = $price->text();
     if ($text === '') {
         echo 'Нет в наличии';
